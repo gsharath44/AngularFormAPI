@@ -1,0 +1,355 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>API Configuration Details</h2>
+  </div>
+  <div class="col-md-12">
+    <hr>
+  </div>
+  <form [formGroup]="apiForm" style="width:100%;">
+    <!-- Api details Section -->
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-12">
+              <h4>API Details:</h4>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-label" for="api_path">API Path</label>
+                <input type="text" formControlName="api_path" class="form-control" id="api_path" value="" placeholder="">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="api_description">API Description</label>
+                <input type="text" formControlName="api_description" class="form-control" id="api_description"
+                  placeholder="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <hr>
+    </div>
+
+    <!-- Operation Section -->
+    <div class="col-md-12">
+      <!-- Operstions -->
+      <div class="row">
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-12">
+              <h4>Operations:</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-label" for="op_description">Description</label>
+                <input formControlName="op_description" type="text" class="form-control" id="op_description"
+                  placeholder="" value="">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="form-label" for="op_notes">Notes</label>
+                <input formControlName="op_notes" type="text" class="form-control" id="op_notes" placeholder="" value="">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="form-label" for="op_produces">Produces</label>
+                <input formControlName="op_produces" type="text" class="form-control" id="op_produces" placeholder="" value="">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="form-label" for="op_path">Path</label>
+                <input formControlName="op_path" type="text" class="form-control" id="op_path" placeholder="" value="">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="form-label" for="op_http_method">Http method</label>
+                <input formControlName="op_http_method" type="text" class="form-control" id="op_http_method" placeholder="" value="">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="form-label" for="">Api Method Name</label>
+                <input type="text" formControlName="op_api_method_name" class="form-control" id="op_api_method_name"
+                  placeholder="" value="">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="form-label" for="">Response</label>
+                <input type="text" formControlName="op_response" class="form-control" id="op_response" placeholder=""
+                  value="">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="">Response Container</label>
+                <input type="text" formControlName="op_response_container" class="form-control" id="op_response_container"
+                  placeholder="" value="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Request Details -->
+      <div class="row">
+        <div class="offset-md-1 col-md-3">
+          <div class="row">
+            <div class="col-md-12">
+              <h4>Request Details</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 req-details-container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="form-label" for="op_rd_type">Type</label>
+                <input formControlName="op_rd_type" type="text" class="form-control" id="op_rd_type" placeholder=""
+                  value="">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="form-label" for="op_rd_body">Browse Path</label>
+                <img style="margin-top: 0.7rem;" src="../../assets/png/attachment-icon.png" class="icn" (click)="fileinput.click()"
+                  #fileinput alt="attachment icon">
+                <input type="file" name="" id="" (change)="addAttachments($event)" #fileinput style="display:none;">
+                <input disabled="true" type="text" class="form-control" id="op_rd_body" placeholder="" [value]="appSvc.apiConfigObj.api_operations[0]?.request_details?.body?.name">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Response Headers -->
+      <div class="row" style="margin-top: 2rem;">
+        <div class="offset-md-1 col-md-3">
+          <div class="row">
+            <div class="col-md-12">
+              <h4>Response Headers
+                <img src="../../assets/png/add-icon.png" (click)="addEmptyLineResHead()" class="icn" alt="add icon">
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 req-details-container">
+          <div formArrayName="op_responseHeadersFormArr">
+            <div class="row gray-container" *ngFor="let resHead_ctrl of respnseHeadersCtrl.controls; let i = index; let last = last;">
+              <div [formGroupName]="i" style="width:100%;" [ngClass]="{'form-array': !last}">
+                <div class="row">
+                  <div class="col-md-6">
+                    Response Header {{i+1}}
+                  </div>
+                  <div class="col-md-6">
+                    <img src="../../assets/png/delete-icon.png" (click)="removeResHeaders(i)" class="icn" alt="delete icon">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-label" for="resh_name">Name</label>
+                      <input formControlName="resh_name" type="text" class="form-control" id="resh_name" placeholder=""
+                        value="">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group ">
+                      <label class="form-label" for="resh_type">Type</label>
+                      <input formControlName="resh_type" type="text" class="form-control" id="resh_type" placeholder=""
+                        value="">
+                    </div>
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="form-label" for="resh_description">Description</label>
+                      <input formControlName="resh_description" type="text" class="form-control" id="resh_description"
+                        placeholder="" value="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Response Details -->
+      <div class="row" style="margin-top: 2rem;">
+
+        <div class="offset-md-1 col-md-3">
+          <div class="row">
+            <div class="col-md-12">
+              <h4>Response Details
+                <img src="../../assets/png/add-icon.png" (click)="addEmptyLineResDetails()" class="icn" alt="add icon">
+              </h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 req-details-container">
+          <div formArrayName="op_responseDetailsFormArr">
+            <div class="row gray-container" *ngFor="let resDetail_ctrl of respnseDetailsCtrl.controls; let i = index;">
+              <div [formGroupName]="i" style="width:100%;">
+
+                <div class="row">
+                  <div class="col-md-6">
+                    Response Details {{i+1}}
+                  </div>
+                  <div class="col-md-6">
+                    <img src="../../assets/png/delete-icon.png" (click)="removeResDetails(i)" class="icn" alt="delete icon">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="form-label" for="resd_body">Body</label>
+                      <input formControlName="resd_body" type="text" class="form-control" id="resd_body" placeholder=""
+                        value="">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-label" for="resd_code">Code</label>
+                      <input formControlName="resd_code" type="text" class="form-control" id="resd_code" placeholder=""
+                        value="">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-label" for="resd_message">Message</label>
+                      <input formControlName="resd_message" type="text" class="form-control" id="resd_message"
+                        placeholder="" value="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Api Implicit Params -->
+      <div class="row" style="margin-top: 2rem;">
+
+        <div class="offset-md-1 col-md-3">
+          <div class="row">
+            <div class="col-md-12">
+              <h4>Api Implicit Params
+                <img src="../../assets/png/add-icon.png" (click)="addEmptyLineapiImplicitParams()" class="icn" alt="add icon">
+              </h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 req-details-container">
+          <div formArrayName="op_apiImplicitParamsFormArr">
+            <div class="row gray-container" *ngFor="let apiImpParam_ctrl of apiImplicitParamsCtrl.controls; let i = index;">
+              <div [formGroupName]="i" style="width:100%;">
+
+                <div class="row">
+                  <div class="col-md-6">
+                    API Params {{i+1}}
+                  </div>
+                  <div class="col-md-6">
+                    <img src="../../assets/png/delete-icon.png" (click)="removeapiImplicitParams(i)" class="icn" alt="delete icon">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="form-label" for="IP_name">Name</label>
+                      <input formControlName="IP_name" type="text" class="form-control" id="IP_name" placeholder=""
+                        value="">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="form-label" for="IP_value">Value</label>
+                      <input formControlName="IP_value" type="text" class="form-control" id="IP_value" placeholder=""
+                        value="">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="form-label" for="IP_required">Required</label>
+                      <input formControlName="IP_required" type="text" class="form-control" id="IP_required"
+                        placeholder="" value="">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="form-label" for="IP_dataType">DataType</label>
+                      <input formControlName="IP_dataType" type="text" class="form-control" id="IP_dataType"
+                        placeholder="" value="">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="form-label" for="IP_paramType">ParamType</label>
+                      <input formControlName="IP_paramType" type="text" class="form-control" id="IP_paramType"
+                        placeholder="" value="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of  Details-->
+    </div>
+    <!-- End of operations -->
+
+    <div class="col-md-12">
+      <hr>
+    </div>
+
+    <div class="col-md-12" style="text-align:center; margin-bottom:20px;">
+      <button type="button" class="btn btn-success" (click)="submitForm()">Save & Review</button>
+    </div>
+  </form>
+</div>

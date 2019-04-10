@@ -1,0 +1,72 @@
+<div class="container-fluid">
+  <div class="row" style="background-color:#EEE;">
+    <h1>API Configuration</h1>
+  </div>
+  <!-- <div class="container margin-lr">
+    <div class="row topbar">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="bar" [ngClass]="{'inactive':true,'active': step ==1 , 'completed':stepOneComplete == true}"></div>
+                <div class="avatar" (click)="barMove(1)">
+                  <span [ngClass]="{'inactive':true,'active': step ==1 , 'completed':stepOneComplete==true}">
+                    1
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 bar-item-text" [ngClass]="{'active-text': step ==1 , 'completed-text':stepOneComplete == true}">
+                <span>API Configuration Details</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="bar" [ngClass]="{'inactive':true,'active': step ==2 , 'completed':stepTwoComplete == true}"></div>
+                <div class="avatar" (click)="barMove(2)">
+                  <span [ngClass]="{'inactive':true,'active': step ==2 , 'completed':stepTwoComplete == true}">
+                    2
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 bar-item-text" [ngClass]="{'active-text': step ==2 , 'completed-text':stepTwoComplete == true}">
+                <span>Service Details</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="bar" [ngClass]="{'inactive':true,'active': step ==3 , 'completed':step > 3}"></div>
+                <div class="avatar" (click)="barMove(3)">
+                  <span [ngClass]="{'inactive':true,'active': step ==3 , 'completed':step > 3}">
+                    2
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 bar-item-text" [ngClass]="{'active-text': step ==3 , 'completed-text':step > 3}">
+                <span>Review & Generate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="container margin-lr">
+    <div class="row" style="margin-top : 50px;">
+      <div class="col-md-12">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

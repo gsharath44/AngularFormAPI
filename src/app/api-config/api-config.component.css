@@ -1,0 +1,28 @@
+.form-elem{
+    margin-top: 2rem;
+}
+
+.form-label{
+    padding-top: 8px;
+}
+
+
+.req-details-container{
+    /* background: blanchedalmond; */
+    background: #f2f2f2;
+}
+
+.icn{
+    float: right;
+    height: 1.4rem;
+    cursor: pointer;
+}
+
+.gray-container{
+    padding: 1rem;
+}
+
+.form-array{
+    border-bottom: 2px solid rgb(22, 156, 131);;
+    margin-bottom: -1.5rem;
+}

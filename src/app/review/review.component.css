@@ -1,0 +1,42 @@
+.head-title{
+    font-size: 14px;
+    display: block;
+    color: #000;
+}
+
+.head-text{
+    font-size: 16px;
+    display: block;
+    color: #888;
+}
+
+.linebox{
+    padding: 5px;
+    margin-bottom: 5px;
+    background: rgba(242, 242, 242, 0.3);
+}
+.spacebox{
+    margin-bottom: 40px;
+}
+
+.pencil-container{
+    position: relative;
+}
+
+.edit-button{
+    position: absolute;
+    top:5px;
+    cursor: pointer;
+    right: 5px;
+    z-index: 10;
+}
+
+.gray-container{
+    background: #f2f2f2;
+    padding: 1.2rem 0 1.2rem 0;
+    
+}
+
+.form-array{
+    border-bottom: 2px solid rgb(22, 156, 131);
+}

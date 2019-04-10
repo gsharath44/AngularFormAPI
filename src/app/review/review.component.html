@@ -1,0 +1,248 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>Review API Configuration Details</h2>
+  </div>
+  <div class="col-md-12">
+    <hr>
+  </div>
+  <!-- API details -->
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-4">
+        <h4>API Details</h4>
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-6">
+            <span class="head-title">API Path</span>
+            <span class="head-text">{{appSvc.apiConfigObj.api_path}}</span>
+          </div>
+          <div class="col-md-6">
+            <span class="head-title">API Description</span>
+            <span class="head-text">{{appSvc.apiConfigObj.api_description}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <hr>
+  </div>
+  <!-- Operations -->
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-4">
+        <h4>Operations</h4>
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-12">
+            <span class="head-title">Description</span>
+            <span class="head-text">{{appSvc.apiConfigObj.api_operations[0].description}}</span>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <span class="head-title">Notes</span>
+            <span class="head-text">{{appSvc.apiConfigObj.api_operations[0].notes}}</span>
+          </div>
+          <div class="col-md-3">
+            <span class="head-title">Produces</span>
+            <span class="head-text">{{appSvc.apiConfigObj.api_operations[0].produces}}</span>
+          </div>
+          <div class="col-md-3">
+            <span class="head-title">Path</span>
+            <span class="head-text">{{appSvc.apiConfigObj.api_operations[0].path}}</span>
+          </div>
+          <div class="col-md-3">
+            <span class="head-title">Http Method</span>
+            <span class="head-text">{{appSvc.apiConfigObj.api_operations[0].http_method}}</span>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-6">
+            <span class="head-title">Api Method Name</span>
+            <span class="head-text">{{appSvc.apiConfigObj.api_operations[0].api_method_name}}</span>
+          </div>
+          <div class="col-md-6">
+            <span class="head-title">Response</span>
+            <span class="head-text">{{appSvc.apiConfigObj.api_operations[0].response}}</span>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-6">
+            <span class="head-title">Response Container</span>
+            <span class="head-text">{{appSvc.apiConfigObj.api_operations[0].response_container}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <hr>
+  </div>
+
+  <!-- Request Details -->
+  <div class="col-md-12">
+    <div class="row">
+      <div class="offset-md-1 col-md-3">
+        <h4>Request Details</h4>
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-6">
+            <span class="head-title">Type</span>
+            <span class="head-text">{{appSvc.apiConfigObj.api_operations[0].request_details.type}}</span>
+          </div>
+          <div class="col-md-6">
+            <span class="head-title">Browse Path</span>
+            <span class="head-text">{{appSvc.apiConfigObj.api_operations[0].request_details?.body?.name}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <hr>
+  </div>
+
+  <!-- Response Headers -->
+  <div class="col-md-12">
+    <div class="row">
+      <div class="offset-md-1 col-md-3">
+        <h4>Response Headers</h4>
+      </div>
+
+      <div class="col-md-8">
+        <div class="row gray-container" [ngClass]="{'form-array': !last}" *ngFor="let resHead of appSvc.apiConfigObj.api_operations[0].response_headers; let last = last;">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-6">
+                <span class="head-title">Name</span>
+                <span class="head-text">{{resHead.name}}</span>
+              </div>
+              <div class="col-md-6">
+                <span class="head-title">Type</span>
+                <span class="head-text">{{resHead.type}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-6">
+                <span class="head-title">Description</span>
+                <span class="head-text">{{resHead.description}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <hr>
+  </div>
+
+  <!-- Response Details -->
+  <div class="col-md-12">
+    <div class="row">
+      <div class="offset-md-1 col-md-3">
+        <h4>Response Details</h4>
+      </div>
+      <div class="col-md-8">
+        <div class="row gray-container" [ngClass]="{'form-array': !last}" *ngFor="let resDetail of appSvc.apiConfigObj.api_operations[0].response_details; let last = last;">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-6">
+                <span class="head-title">Body</span>
+                <span class="head-text">{{resDetail.body}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-6">
+                <span class="head-title">Code</span>
+                <span class="head-text">{{resDetail.code}}</span>
+              </div>
+              <div class="col-md-6">
+                <span class="head-title">Message</span>
+                <span class="head-text">{{resDetail.message}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <hr>
+  </div>
+
+  <!-- Api Implicit Params -->
+  <div class="col-md-12">
+    <div class="row">
+      <div class="offset-md-1 col-md-3">
+        <h4>Api Implicit Params</h4>
+      </div>
+      <div class="col-md-8">
+        <div class="row gray-container" [ngClass]="{'form-array': !last}" *ngFor="let apiImpParam of appSvc.apiConfigObj.api_operations[0].api_implicit_params; let last = last;">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-6">
+                <span class="head-title">Name</span>
+                <span class="head-text">{{apiImpParam.name}}</span>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-6">
+                <span class="head-title">Value</span>
+                <span class="head-text">{{apiImpParam.value}}</span>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-4">
+                <span class="head-title">Required</span>
+                <span class="head-text">{{apiImpParam.required}}</span>
+              </div>
+              <div class="col-md-4">
+                <span class="head-title">Datatype</span>
+                <span class="head-text">{{apiImpParam.dataType}}</span>
+              </div>
+              <div class="col-md-4">
+                <span class="head-title">Paramtype</span>
+                <span class="head-text">{{apiImpParam.paramType}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <hr>
+  </div>
+
+  <div class="col-md-12" style="text-align:center; margin-bottom:20pxs;">
+    <div class="row">
+      <div class="col-md-3">
+        <button type="button" class="btn btn-info" (click)="buttonClick('back')">Back</button>
+      </div>
+      <div class="offset-md-5 col-md-3">
+        <button type="button" class="btn btn-success" (click)="buttonClick('generate')">Generate JSON</button>
+      </div>
+    </div>
+  </div>
+
+</div>

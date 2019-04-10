@@ -1,0 +1,50 @@
+.topbar{
+    text-align: center;
+    font-size: 12px;    
+    margin-top: 20px;
+    color:#222;    
+    /* background-color: firebrick; */
+}
+
+.bar{
+    height: 5px;
+    
+}
+.bar-item-text{
+    color:#D8D8D8;
+}
+.avatar{
+    margin-top: -15px;
+    cursor:pointer;
+}
+.avatar > span{
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    border-radius: 50%;    
+}
+
+.inactive {
+    background-color: #F2F2F2;
+    color:#D8D8D8;
+}
+
+.active{
+    background-color: orange;    
+    color: white !important;
+}
+.active-text{
+    color:orange;
+}
+
+.completed{
+    background-color: green;
+    color:white !important;
+}
+.completed-text{
+    color: green;
+}
+.margin-lr{
+    padding: 0 3rem 0rem 3rem;
+}
